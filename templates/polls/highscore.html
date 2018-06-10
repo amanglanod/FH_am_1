@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 
-
+{% load static %}
 
         {% block title %}
                 Highscore
         {% endblock %}
 
          {% block body %}
+          <link rel="stylesheet" href="{% static 'highscore.css' %}" type="text/css">
+
                     <h1>Highscore</h1>
                     Top Candidates
+
+
+
+
+
+
 
          {% endblock %}
