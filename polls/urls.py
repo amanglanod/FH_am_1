@@ -1,9 +1,10 @@
 from django.urls import path
 from django.conf.urls import include
 from . import views
-
+from polls.views import HomeView, HighscoreView, rate
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('highscore', views.highscore, name='highscore')
+    path('home', HomeView),
+    path('highscore', HighscoreView),
+    path('rating/<int:candidate_id>/<int:rating>', rate)
 ]

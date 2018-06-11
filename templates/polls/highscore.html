@@ -12,6 +12,13 @@
                     <h1>Highscore</h1>
                     Top Candidates
 
+             {% for candiate in candiates %}
+                 {{ candiate.candidate_text }} - {% for key,value in averages.items %}
+                 {% if key == candiate.id %}{{ value }}{% endif %}
+                {% endfor %}
+                 <br>
+
+             {% endfor %}
 
 
 

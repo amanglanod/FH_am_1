@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
         {% block title %}
@@ -8,6 +7,7 @@
 
         {% block body %}
          <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+
 
             <main role="main">
 
@@ -26,21 +26,40 @@
         <div class="container">
 
           <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src={% static "giphy.gif" %} data-holder-rendered="true">
-                <div class="card-body">
-                  <p class="card-text">"A glass is a glass and a plate is a plate"</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Next</button>
+            {% for candiate in candidates %}
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src={% static "giphy.gif" %} data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">{{ candiate.candidate_text }}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Next</button>
+                        </div>
+                          <form method="post">
+                              {% csrf_token %}
+                              <a href="/polls/rating/{{ candiate.id }}/1"><img class="starrating" src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/2"><img class="starrating" src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/3"><img class="starrating" src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/4"><img class="starrating" src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/5"><img class="starrating" src={% static "star-icon.png" %}></a>
+                          </form>
+
+
+                      </div>
                     </div>
-                    <small class="text-muted">Spain</small>
                   </div>
                 </div>
-              </div>
+             {% endfor %}
             </div>
+          </div>
+
+
+
+
+
+<!--
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src={% static "merkel.gif" %} data-holder-rendered="true">
@@ -166,7 +185,7 @@
           </div>
         </div>
       </div>
-
+-->
     </main>
 
 
