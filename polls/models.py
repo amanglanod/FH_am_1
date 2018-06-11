@@ -6,11 +6,13 @@ class Candidate(models.Model):
     def __str__(self):
         return self.candidate_text
 
+    photo = models.FileField(upload_to='media/')
+
+
+
 class Rate(models.Model):
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
     #rate_text = models.CharField(max_length=200)
-    def __str__(self):
-        return self.rate_text
 
 
 class RatingList(models.Model):
