@@ -66,3 +66,12 @@ def rate(request, candidate_id, rating):
     ratingList.save()
 
     return redirect('/polls/home')
+
+def quote(request):
+    candidates = Candidate.objects.all()
+
+    template = loader.get_template('polls/home.html')
+    context = {
+        'quote': quote,}
+
+    return HttpResponse(template.render(context, request))

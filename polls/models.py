@@ -7,7 +7,8 @@ class Candidate(models.Model):
         return self.candidate_text
 
     photo = models.FileField(upload_to='media/')
-
+    quote = models.CharField(max_length=200, default='Hello')
+    country = models.CharField(max_length=20, default='The World')
 
 
 class Rate(models.Model):
