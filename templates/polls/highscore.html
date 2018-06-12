@@ -25,7 +25,7 @@
            <br>
 
 
-                      <ul class="w3-ul w3-card-4">
+                      <ul class="w3-ul w3-card-4" style="background-color: transparent">
 
                         {% for candiate in candiates %}
 
@@ -33,13 +33,18 @@
                             <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">
                             </span>
 
-                          <img src="{{ candiate.photo.url }}" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
-                                <div class="w3-bar-item">
-                                    <span class="w3-large">{{ candiate.candidate_text }}</span><br>
-                                    <span>{% for key,value in averages.items %}
+                            <span class="w3-bar-item w3-button w3-white w3-xlarge w3-right">
+                                {% for key,value in averages.items %}
                                         {% if key == candiate.id %}{{ value }}{% endif %}
                                         {% endfor %}
-                                        </span>
+                            </span>
+
+                          <img src="{{ candiate.photo.url }}" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                                <div class="w3-bar-item">
+                                    <span class="w3-large">{{ candiate.candidate_text }}</span>
+                                    <br>
+                                    <br>
+
                                 </div>
                           </li>
                       {% endfor %}
