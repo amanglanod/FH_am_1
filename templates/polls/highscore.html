@@ -1,3 +1,4 @@
+<html>
 {% extends 'base.html' %}
 
 {% load static %}
@@ -7,22 +8,56 @@
         {% endblock %}
 
          {% block body %}
-          <link rel="stylesheet" href="{% static 'highscore.css' %}" type="text/css">
+                <link rel="stylesheet" href="{% static 'highscore.css' %}" type="text/css"
+                   xmlns="http://www.w3.org/1999/html">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-                    <h1>Highscore</h1>
-                    Top Candidates
 
-             {% for candiate in candiates %}
-                 {{ candiate.candidate_text }} - {% for key,value in averages.items %}
-                 {% if key == candiate.id %}{{ value }}{% endif %}
-                {% endfor %}
-                 <br>
-
-             {% endfor %}
+           <header>
 
 
 
+           <div class="w3-container">
+               <h2>Candidate List</h2>
+           <br>
+           <br>
+           <br>
+
+
+                      <ul class="w3-ul w3-card-4">
+
+                        {% for candiate in candiates %}
+
+                          <li class="w3-bar">
+                            <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">
+                            </span>
+
+                          <img src="{{ candiate.photo.url }}" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                                <div class="w3-bar-item">
+                                    <span class="w3-large">{{ candiate.candidate_text }}</span><br>
+                                    <span>{% for key,value in averages.items %}
+                                        {% if key == candiate.id %}{{ value }}{% endif %}
+                                        {% endfor %}
+                                        </span>
+                                </div>
+                          </li>
+                      {% endfor %}
+
+
+                      </ul>
+           </div>
 
 
 
+
+
+
+
+
+            </header>
          {% endblock %}
+
+
+
+</html>
