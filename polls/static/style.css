@@ -6,3 +6,40 @@ IMG.border {
     margin-right: auto
 
 }
+p {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif , Times, serif;
+}
+
+body {
+    background-color: white;
+
+}
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+header
+{
+    background-color: white;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+li{
+    display: list-item;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+p {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif , Times, serif;
+}
+
+
+
+

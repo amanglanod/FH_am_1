@@ -20,18 +20,18 @@
 
 
 
-            <main role="main">
+                <main role="main">
 
-      <section class="jumbotron text-center" style="background: transparent">
-        <div class="container">
-          <h1 class="jumbotron-heading">
-              <img src="{% static 'pinder1.png' %}" width="300">
-          </h1>
-            <p class="lead text-muted">Everybody's got a match. Presidents too.</p>
+                  <section class="jumbotron text-center" style="background: transparent">
+                    <div class="container">
+                      <h1 class="jumbotron-heading">
+                          <img src="{% static 'pinder1.png' %}" width="300">
+                      </h1>
+                        <p class="lead text-muted">Everybody's got a match. Presidents too.</p>
 
-        </div>
+                    </div>
 
-      </section>
+                  </section>
 
       <div class="album py-5 bg-light" style="background: transparent">
         <div class="container" style="background: transparent">
@@ -50,22 +50,17 @@
                             <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Details</button>
 
                         </p>
-                        <p>
 
-                              <div id="demo" class="collapse">{{ candiate.country }}
+                              <div id="demo{{ candiate.country }}" class="collapse">{{ candiate.country }}
                               </div>
-                        </p>
-
-
-
 
                           <form method="post">
                               {% csrf_token %}
-                              <a href="/polls/rating/{{ candiate.id }}/1"><img class="starrating" style="width: 30px" src={% static "star-icon.png" %}></a>
-                              <a href="/polls/rating/{{ candiate.id }}/2"><img class="starrating" style="width: 30px"src={% static "star-icon.png" %}></a>
-                              <a href="/polls/rating/{{ candiate.id }}/3"><img class="starrating" style="width: 30px"src={% static "star-icon.png" %}></a>
-                              <a href="/polls/rating/{{ candiate.id }}/4"><img class="starrating" style="width: 30px"src={% static "star-icon.png" %}></a>
-                              <a href="/polls/rating/{{ candiate.id }}/5"><img class="starrating" style="width: 30px"src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/1"><img class="starrating" style="width: 20px" src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/2"><img class="starrating" style="width: 20px"src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/3"><img class="starrating" style="width: 20px"src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/4"><img class="starrating" style="width: 20px"src={% static "star-icon.png" %}></a>
+                              <a href="/polls/rating/{{ candiate.id }}/5"><img class="starrating" style="width: 20px"src={% static "star-icon.png" %}></a>
                           </form>
 
 
