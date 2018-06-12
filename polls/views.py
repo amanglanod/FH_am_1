@@ -75,3 +75,13 @@ def quote(request):
         'quote': quote,}
 
     return HttpResponse(template.render(context, request))
+
+def photo(request):
+    candidates = Candidate.objects.all()
+
+    template = loader.get_template('polls/home.html')
+    context = {
+        'photo': photo,
+    }
+
+    return HttpResponse(template.render(context, request))

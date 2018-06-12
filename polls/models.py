@@ -6,7 +6,7 @@ class Candidate(models.Model):
     def __str__(self):
         return self.candidate_text
 
-    photo = models.FileField(upload_to='media/')
+    photo = models.FileField(upload_to='candidate_photo')
     quote = models.CharField(max_length=200, default='Hello')
     country = models.CharField(max_length=20, default='The World')
 
