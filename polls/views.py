@@ -86,12 +86,17 @@ def photo(request):
 
     return HttpResponse(template.render(context, request))
 
-def DetailsView(request):
-    candidates = Candidate.objects.all()
 
-    template = loader.get_template('polls/details.html')
-    context = {
-        'country': candidates,
-    }
+def details(request,candidate_id):
+        candiate=Candidate.objects.get(id=candidate_id)
 
-    return HttpResponse(template.render(context, request))
+
+        Candidates = Candidate()
+
+
+        template=loader.get_template('polls/details.html')
+        context={
+        'candidates':candiate,
+        }
+        return HttpResponse(template.render(context, request))
+

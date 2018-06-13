@@ -47,12 +47,11 @@
                         <p class="card-text">{{ candiate.quote }}</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <p>
-                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Details</button>
+                            <a class="btn btn-primary" href="/polls/details/{{ candiate.id }}" role="button">Details</a>
 
                         </p>
 
-                              <div id="demo{{ candiate.country }}" class="collapse">{{ candiate.country }}
-                              </div>
+
 
                           <form method="post">
                               {% csrf_token %}
