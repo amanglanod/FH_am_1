@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from django.http import HttpResponse
 
 # Create your views here.
-from polls.models import Candidate, Rate, RatingList
+from polls.models import Candidate, Rate, RatingList, Details
 
 
 def HomeView(request):
@@ -87,16 +87,13 @@ def photo(request):
     return HttpResponse(template.render(context, request))
 
 
-def details(request,candidate_id):
-        candiate=Candidate.objects.get(id=candidate_id)
+def details(request, candidate_id):
 
-
-        Candidates = Candidate()
-
+        details = Candidate.objects.filter(id=candidate_id)
 
         template=loader.get_template('polls/details.html')
         context={
-        'candidates':candiate,
+        'candidates':details,
         }
         return HttpResponse(template.render(context, request))
 

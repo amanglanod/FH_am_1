@@ -21,3 +21,12 @@ class RatingList(models.Model):
     rate = models.ForeignKey(Rate, on_delete=models.CASCADE)
 
 
+class Details(models.Model):
+    candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    age = models.IntegerField(default=0)
+    nationality = models.CharField(max_length=200)
+    experience = models.CharField(max_length=1000)
+    anthem = models.FileField(upload_to='candidate_photo')
+    socialmedia = models.URLField(default=0)
+
